@@ -1,0 +1,27 @@
+.row {
+  background: white;
+  border-bottom: 1px solid whitesmoke;
+  border-top: 1px solid whitesmoke;
+  padding: 10px;
+  cursor: move;
+}
+
+.row.dragging {
+  background: red;
+  opacity: 1.0;
+}
+
+.droparea {
+  background: silver;
+  height: 5px;
+}
+
+.droparea.expand {
+  height: 50px;
+}
+
+.block {
+  width: 100px;
+  height: 100px;
+  background: red;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Angular Arrangeable Array</title>
+
+    <link href='build/build.css' type='text/css' rel='stylesheet'></link>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js'></script>
+    <script src='build/build.js'></script>
+
+    <script>
+
+      require('angular-arrangeable-array');
+
+      var app = window.angular.module('my-app', [ 'arrangeable-array' ]);
+
+      app.controller('Ctrl', function ($scope) {
+
+        $scope.items = [
+          '/foo.jpg',
+          '/bar.jpg',
+          '/foobar.png',
+          '/barfoo.pdf',
+          '/bar'
+        ]
+
+      });
+
+    </script>
+
+  </head>
+
+  <body ng-app='my-app' ng-controller='Ctrl'>
+    <arrangeable-array array='items'></arrangeable-array>
+  </body>
+
+</html>
