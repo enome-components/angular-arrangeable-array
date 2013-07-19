@@ -1,12 +1,16 @@
-<div>
+<div class='arrangeable-array'>
 
   <div ng-repeat='item in array'>
 
-    <div class='row' ng-mousedown='dragStart($event)'>
-      {{item}}
-      <button ng-click='remove(item)'>trash</button>
+    <div class='row' data-index='{{$index}}'>
+      <div class='col1'>{{item}}</div>
+      <div class='col2'>
+        <button ng-click='remove(item)'><i class='icon-trash'></i></button>
+      </div>
     </div>
 
   </div>
+
+  <div class='row last' data-index='{{array.length}}'></div>
 
 </div>

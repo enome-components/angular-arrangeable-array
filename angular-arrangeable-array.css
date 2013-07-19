@@ -1,33 +1,49 @@
-.row {
-  background: white;
-  border-bottom: 1px solid silver;
-  border-top: 1px solid silver;
-  padding: 10px;
+.arrangeable-array .row {
+  position: relative;
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
+  border-top: 1px solid #e8e8e8;
   cursor: move;
   width: 100%;
-  box-sizing: border-box;
+  margin-bottom: 5px;
+  height: 30px;
+  color: #7a7a7a;
+  font-family: 'Roboto Condensed';
+  font-weight: 300;
+  font-size: 16px;
 }
-
-.row.dragging {
-  background: red;
-  opacity: 1.0;
+.arrangeable-array .row.expand {
+  margin-top: 42px;
 }
-
-.droparea {
+.arrangeable-array .row.last {
   height: 5px;
-  background: yellow;
+  border: 0 none;
+  padding: 0;
 }
-
-.droparea.expand {
-  height: 50px;
+.arrangeable-array [class^="icon-"],
+.arrangeable-array [class*=" icon-"] {
+  font-size: 14px;
+  color: #787878;
 }
-
-.block {
-  width: 100px;
-  height: 100px;
-  background: red;
-}
-
-.detach {
+.arrangeable-array .col1,
+.arrangeable-array .col2 {
   position: absolute;
+  top: 4px;
+}
+.arrangeable-array .col1 {
+  top: 5px;
+  left: 10px;
+  right: 75px;
+}
+.arrangeable-array .col2 {
+  right: 0;
+  width: 55px;
+  border-left: 1px solid #e3e3e3;
+  text-align: center;
+}
+.arrangeable-array button {
+  padding: 0;
+  background: none;
+  border: 0 none;
+  font-size: 14px;
 }

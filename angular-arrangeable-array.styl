@@ -1,0 +1,48 @@
+.arrangeable-array
+
+  .row
+    position: relative
+    background: white
+    border-bottom: 1px solid #e8e8e8
+    border-top: 1px solid #e8e8e8
+    cursor: move
+    width: 100%
+    margin-bottom: 5px
+    height: 30px
+    color: #7a7a7a
+    font-family: 'Roboto Condensed'
+    font-weight: 300
+    font-size: 16px
+
+    &.expand
+      margin-top: 42px
+
+    &.last
+      height: 5px
+      border: 0 none
+      padding: 0
+
+  [class^="icon-"], [class*=" icon-"]
+    font-size: 14px
+    color: #787878
+
+  .col1, .col2 
+    position: absolute
+    top: 4px
+
+  .col1 
+    top: 5px
+    left: 10px
+    right: 75px
+
+  .col2 
+    right: 0
+    width: 55px
+    border-left: 1px solid #e3e3e3
+    text-align: center
+  
+  button 
+    padding: 0
+    background: none
+    border: 0 none
+    font-size: 14px
