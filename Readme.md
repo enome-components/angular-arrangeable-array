@@ -11,7 +11,25 @@
 
 ## API
 
+```js
+require('angular-arrangeable-array');
 
+var app = window.angular.module('my-app', [ 'arrangeable-array' ]);
+
+app.controller('Ctrl', function ($scope) {
+  $scope.items = [ '/first', '/second', '/third', '/fourth' ];
+
+  $scope.$watch('items', function () {
+    console.log($scope.items);
+  }, true);
+});
+```
+
+```html
+<body ng-app='my-app' ng-controller='Ctrl'>
+  <arrangeable-array array='items'></arrangeable-array>
+</body>
+```
 
 ## License
 
