@@ -1,20 +1,11 @@
 <div>
-  <div class='block'></div>
 
   <div ng-repeat='item in array'>
 
-    <div class='droparea'>
-
-    </div>
-
-    <div draggable='true' class='row'>
+    <div class='row' ng-mousedown='dragStart($event)'>
       {{item}}
       <button ng-click='remove(item)'>trash</button>
     </div>
-
-  </div>
-
-  <div class='droparea'>
 
   </div>
 

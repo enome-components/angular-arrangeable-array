@@ -1,9 +1,11 @@
 .row {
   background: white;
-  border-bottom: 1px solid whitesmoke;
-  border-top: 1px solid whitesmoke;
+  border-bottom: 1px solid silver;
+  border-top: 1px solid silver;
   padding: 10px;
   cursor: move;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .row.dragging {
@@ -12,8 +14,8 @@
 }
 
 .droparea {
-  background: silver;
   height: 5px;
+  background: yellow;
 }
 
 .droparea.expand {
@@ -24,4 +26,8 @@
   width: 100px;
   height: 100px;
   background: red;
+}
+
+.detach {
+  position: absolute;
 }
