@@ -1,6 +1,13 @@
+require('webfont');
+
+var module = window.angular.module('arrangeable-array', []);
+
+module.run(function ($templateCache) {
+  $templateCache.put('template.html', require('./template'));
+  window.WebFont.load({ google: { families: ['Roboto Condensed:300,400,700'] } });
+});
+
 var move = function (array, pos1, pos2) {
-  // Src: http://stackoverflow.com/questions/5306680/move-an-array-element-from-one-array-position-to-another
-  
   var i, tmp;
   pos1 = parseInt(pos1, 10);
   pos2 = parseInt(pos2, 10);
@@ -20,15 +27,6 @@ var move = function (array, pos1, pos2) {
   }
 };
 
-
-var module = window.angular.module('arrangeable-array', []);
-
-module.run(function ($templateCache) {
-  $templateCache.put('template.html', require('./template'));
-
-  require('webfont');
-  window.WebFont.load({ google: { families: ['Roboto Condensed:300,400,700'] } });
-});
 
 module.directive('arrangeableArray', function ($document) {
 
@@ -55,7 +53,7 @@ module.directive('arrangeableArray', function ($document) {
       
       document.addEventListener('mousedown', function (e) {
 
-        if (e.target.classList.contains('row')) {
+        if (e.target.classList.contains('row') && !e.target.classList.contains('last')) {
           dragging_row = e.target;
         }
 
@@ -66,6 +64,7 @@ module.directive('arrangeableArray', function ($document) {
         if (dragging_row) {
           dragging_row.style.width = dragging_row.offsetWidth + 'px';
           dragging_row.offsetY = e.pageY - dragging_row.offsetTop; // FF doesn't support offsetY
+          dragging_row.parentNode.style.height = dragging_row.parentNode.offsetHeight + 'px';
           
           e.preventDefault();
           return false;
@@ -75,7 +74,7 @@ module.directive('arrangeableArray', function ($document) {
 
       // On drop
 
-      document.onmouseup = function () {
+      document.addEventListener('mouseup', function () {
         
         if (dragging_row) {
 
@@ -103,14 +102,16 @@ module.directive('arrangeableArray', function ($document) {
 
           // Reset
 
+          dragging_row.parentNode.parentNode.style.height = 'inherit';
+
           dragging_row = drop_row = null;
           resetExpand();
 
         }
 
-      };
+      });
 
-      document.onmousemove = function (e) {
+      document.addEventListener('mousemove', function (e) {
 
         if (dragging_row) {
           dragging_row.style.position = 'absolute';
@@ -137,7 +138,7 @@ module.directive('arrangeableArray', function ($document) {
 
         }
 
-      };
+      });
 
     },
 
