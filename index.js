@@ -118,12 +118,13 @@ module.directive('arrangeableArray', function ($document) {
           dragging_row.style.top = (e.pageY - dragging_row.offsetY) + 'px';
 
           var rows = root[0].querySelectorAll('.row');
+          var pageY = e.pageY - ((document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop);
 
           [].forEach.call(rows, function (row) {
 
             var cords = row.getBoundingClientRect();
 
-            if (e.pageX >= cords.left && e.pageX <= cords.right && e.pageY >= cords.top && e.pageY <= cords.bottom) {
+            if (e.pageX >= cords.left && e.pageX <= cords.right && pageY >= cords.top && pageY <= cords.bottom) {
 
               if (row !== dragging_row) {
                 drop_row = row;
