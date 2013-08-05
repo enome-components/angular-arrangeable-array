@@ -4,7 +4,6 @@ var module = window.angular.module('arrangeable-array', []);
 
 module.run(function ($templateCache) {
   $templateCache.put('template.html', require('./template'));
-  window.WebFont.load({ google: { families: ['Roboto Condensed:300,400,700'] } });
 });
 
 var move = function (array, pos1, pos2) {
