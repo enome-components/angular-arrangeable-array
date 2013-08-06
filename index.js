@@ -50,7 +50,7 @@ module.directive('arrangeableArray', function ($document) {
       var dragging_row;
       var drop_row;
       
-      document.addEventListener('mousedown', function (e) {
+      root.bind('mousedown', function (e) {
 
         if (e.target.classList.contains('row') && !e.target.classList.contains('last')) {
           dragging_row = e.target;
@@ -73,7 +73,7 @@ module.directive('arrangeableArray', function ($document) {
 
       // On drop
 
-      document.addEventListener('mouseup', function () {
+      root.bind('mouseup', function () {
         
         if (dragging_row) {
 
@@ -110,7 +110,7 @@ module.directive('arrangeableArray', function ($document) {
 
       });
 
-      document.addEventListener('mousemove', function (e) {
+      root.bind('mousemove', function (e) {
 
         if (dragging_row) {
           dragging_row.style.position = 'absolute';
