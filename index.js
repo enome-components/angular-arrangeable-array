@@ -152,3 +152,5 @@ mod.directive('arrangeableArray', function ($document) {
   };
 
 });
+
+module.exports = 'arrangeable-array';
