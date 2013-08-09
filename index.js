@@ -1,10 +1,4 @@
-require('webfont');
-
-var module = window.angular.module('arrangeable-array', []);
-
-module.run(function ($templateCache) {
-  $templateCache.put('template.html', require('./template'));
-});
+// Utils
 
 var move = function (array, pos1, pos2) {
   var i, tmp;
@@ -26,14 +20,19 @@ var move = function (array, pos1, pos2) {
   }
 };
 
+// App
 
-module.directive('arrangeableArray', function ($document) {
+require('webfont');
+
+var mod = window.angular.module('arrangeable-array', []);
+
+mod.directive('arrangeableArray', function ($document) {
 
   return {
 
     restrict: 'E',
     scope: { array: '=' },
-    templateUrl: 'template.html',
+    template: require('./template'),
     replace: true,
     link: function ($scope, root, attrs) {
 
