@@ -25,11 +25,22 @@
 
     </script>
 
+    <style>
+      .container {
+        background: #F2FAFA;
+        padding: 10px;
+      }
+    </style>
+
   </head>
 
   <body ng-app='my-app' ng-controller='Ctrl'>
     <h1>Arrangeable Array {{items}}</h1>
-    <arrangeable-array array='items'></arrangeable-array>
+
+    <div class='container'>
+      <arrangeable-array array='items'></arrangeable-array>
+    </div>
+
     <br/><br/><br/><br/><br/>
     <div class='row'>
       This row shouldn't be movable
